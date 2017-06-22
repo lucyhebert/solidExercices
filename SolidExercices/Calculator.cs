@@ -5,27 +5,38 @@ namespace SolidExercices
 {
     public class Calculator
     {
-        public double Calculate(string operation)
+        public decimal Calculate(string operation)
         {
             string[] split = operation.Split('+', '-', '*', '/');
-            double res = 0;
+            decimal res = 0;
 
-            if (operation.Contains("+"))
+            if (split.Length == 2)
             {
-                res = Convert.ToDouble(split.GetValue(0)) + Convert.ToDouble(split.GetValue(1));
+                decimal firstNumber = Convert.ToDecimal(split.GetValue(0));
+                decimal secondNumber = Convert.ToDecimal(split.GetValue(1));
+
+                if (operation.Contains("+"))
+                {
+                    res = firstNumber + secondNumber;
+                }
+                else if (operation.Contains("-"))
+                {
+                    res = firstNumber - secondNumber;
+                }
+                else if (operation.Contains("*"))
+                {
+                    res = firstNumber * secondNumber;
+                }
+                else if (operation.Contains("/"))
+                {
+                    res = firstNumber / secondNumber;
+                }
             }
-            else if (operation.Contains("-"))
+            else
             {
-                res = Convert.ToDouble(split.GetValue(0)) - Convert.ToDouble(split.GetValue(1));
+                throw new ArgumentException("ERREUR : trop d'opérateurs !");
             }
-            else if (operation.Contains("*"))
-            {
-                res = Convert.ToDouble(split.GetValue(0)) * Convert.ToDouble(split.GetValue(1));
-            }
-            else if (operation.Contains("/"))
-            {
-                res = Convert.ToDouble(split.GetValue(0)) / Convert.ToDouble(split.GetValue(1));
-            }
+            
             return res;
         }
 

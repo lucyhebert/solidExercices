@@ -1,4 +1,6 @@
-﻿using NFluent;
+﻿using System;
+using System.IO;
+using NFluent;
 using NUnit.Framework;
 
 namespace SolidExercices.Tests
@@ -35,6 +37,14 @@ namespace SolidExercices.Tests
             var calculator = new Calculator();
             var result = calculator.Calculate("6/2");
             Check.That(result).IsEqualTo(3);
+        }
+
+        [Test]
+        public void ShowErrorIfMoreThan2Numbers()
+        {
+            var calculator = new Calculator();
+
+            Assert.Throws<ArgumentException>(() => calculator.Calculate("6/2+3"));
         }
     }
 }
