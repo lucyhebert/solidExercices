@@ -17,7 +17,7 @@ A LA FIN DU TP: pensez à pousser vos commits sur votre compte GitHub et envoyer 
 Réponses aux questions posées
 -----------------------------
 
-Q1)
+Q1) Créer une classe pour chaque "if" ou "switch" implémentant une même interface, créer une liste de ces objets et boucler dessus.
 
 Q2)
 

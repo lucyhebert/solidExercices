@@ -1,35 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SolidExercices
 {
     public class Calculator
     {
+        private readonly List<IOperation> _operationList;
+
+        public Calculator()
+        {
+            _operationList = new List<IOperation>();
+            _operationList.Add(new Sum());
+            _operationList.Add(new Substraction());
+            _operationList.Add(new Product());
+            _operationList.Add(new Division());
+        }
+
         public decimal Calculate(string operation)
         {
-            string[] split = operation.Split('+', '-', '*', '/');
             decimal res = 0;
-
-            if (split.Length == 2)
+            if (operation.Split('+', '-', '*', '/').Length > 3)
             {
-                decimal firstNumber = Convert.ToDecimal(split.GetValue(0));
-                decimal secondNumber = Convert.ToDecimal(split.GetValue(1));
-
-                if (operation.Contains("+"))
+                foreach (var item in _operationList)
                 {
-                    res = firstNumber + secondNumber;
-                }
-                else if (operation.Contains("-"))
-                {
-                    res = firstNumber - secondNumber;
-                }
-                else if (operation.Contains("*"))
-                {
-                    res = firstNumber * secondNumber;
-                }
-                else if (operation.Contains("/"))
-                {
-                    res = firstNumber / secondNumber;
+                    if (item.CanCalculate(operation))
+                    {
+                        res = item.Calculate(operation);
+                    }
                 }
             }
             else
