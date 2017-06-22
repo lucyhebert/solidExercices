@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SolidExercices
 {
@@ -9,7 +10,9 @@ namespace SolidExercices
 
         public void Run()
         {
-            var calculator = new Calculator();
+            List<IOperation> operationList = new List<IOperation> { new Sum(), new Substraction(), new Product(), new Division() };
+            var calculator = new Calculator(operationList);
+
             foreach (var operation in _operations)
             {
                 try
