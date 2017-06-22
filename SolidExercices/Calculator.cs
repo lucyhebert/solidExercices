@@ -13,7 +13,18 @@ namespace SolidExercices
             if (operation.Contains("+"))
             {
                 res = Convert.ToDouble(split.GetValue(0)) + Convert.ToDouble(split.GetValue(1));
-
+            }
+            else if (operation.Contains("-"))
+            {
+                res = Convert.ToDouble(split.GetValue(0)) - Convert.ToDouble(split.GetValue(1));
+            }
+            else if (operation.Contains("*"))
+            {
+                res = Convert.ToDouble(split.GetValue(0)) * Convert.ToDouble(split.GetValue(1));
+            }
+            else if (operation.Contains("/"))
+            {
+                res = Convert.ToDouble(split.GetValue(0)) / Convert.ToDouble(split.GetValue(1));
             }
             return res;
         }
