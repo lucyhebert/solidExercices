@@ -8,13 +8,9 @@ namespace SolidExercices
     {
         private readonly List<IOperation> _operationList;
 
-        public Calculator()
+        public Calculator(List<IOperation> operationList)
         {
-            _operationList = new List<IOperation>();
-            _operationList.Add(new Sum());
-            _operationList.Add(new Substraction());
-            _operationList.Add(new Product());
-            _operationList.Add(new Division());
+            this._operationList = operationList;
         }
 
         public decimal Calculate(string operation)

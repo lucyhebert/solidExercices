@@ -19,9 +19,9 @@ Réponses aux questions posées
 
 Q1) Créer une classe pour chaque "if" ou "switch" implémentant une même interface, créer une liste de ces objets et boucler dessus.
 
-Q2)
+Q2) SOLID
 
-Q3)
+Q3) Injection de dépendance
 
 Q4)
 
