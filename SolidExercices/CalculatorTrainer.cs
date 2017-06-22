@@ -11,8 +11,7 @@ namespace SolidExercices
         public void Run()
         {
             List<IOperation> operationList = new List<IOperation> { new Sum(), new Substraction(), new Product(), new Division() };
-            var calculator = new Calculator(operationList);
-
+            Calculator calculator = new Calculator(operationList);
             foreach (var operation in _operations)
             {
                 try
@@ -20,7 +19,7 @@ namespace SolidExercices
                     var result = calculator.Calculate(operation);
                     Console.WriteLine(operation + " = " + result);
                 }
-                catch (ArgumentException e)
+                catch (Exception e)
                 {
                     Console.WriteLine("ERROR: " + e.Message);
                 }

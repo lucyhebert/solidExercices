@@ -16,7 +16,7 @@ namespace SolidExercices
         public decimal Calculate(string operation)
         {
             decimal res = 0;
-            if (operation.Split('+', '-', '*', '/').Length > 3)
+            try
             {
                 foreach (var item in _operationList)
                 {
@@ -26,14 +26,16 @@ namespace SolidExercices
                     }
                 }
             }
-            else
+            catch (ArgumentException e)
             {
                 throw new ArgumentException("ERREUR : trop d'opérateurs !");
             }
-            
+            catch (DivideByZeroException e)
+            {
+                throw new DivideByZeroException("ERREUR : division par zéro impossible !");
+            }
             return res;
         }
 
-        
     }
 }

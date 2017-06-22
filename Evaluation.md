@@ -23,7 +23,8 @@ Q2) Single Responsability Principle
 
 Q3) Dependancy inversion
 
-Q4)
+Q4)	- Les données sont en dur : il faudrait pouvoir les récupérer de sources extérieures.
+	- Il n'y a que la console comme sortie, il faudrait pouvoir renvoyer vers du web ou autre.
 
 Q5)
 
